@@ -1,34 +1,36 @@
-# git-panel
+# herdr-mods
 
-A source control panel for [Herdr](https://herdr.dev), like the one in VS Code: branch, staged and unstaged changes, a commit graph, diffs, stage, discard, commit and a branch switcher.
+Mods for the [Herdr app](https://herdr.dev). Each mod takes its colours from the active theme, so it fits any layout.
 
-![git-panel](preview.png)
+Each folder is one mod, in the form that [herdr.dev/mods](https://herdr.dev/mods) lists: `<name>/mods/<name>/` is the mod, `README.md` tells how to install and use it, `RECIPE.md` (when there is one) is the brief an agent can rebuild it from, and `preview.png` shows it.
+
+## Mods
+
+| Mod | What it does | Needs |
+|---|---|---|
+| [git-panel](git-panel) | Source control panel like VS Code's: staged and unstaged changes with file icons, a commit graph, diffs, stage, discard, commit and a branch switcher | file-icons |
+| [file-icons](file-icons) | Files panel with Material Icon Theme icons, and the icon set other mods use | — |
+
+[![git-panel](git-panel/preview.png)](git-panel)
 
 ## Install
 
-Copy the mod folder into your Herdr home. Copy it as a real folder: Herdr does not load the icons of a mod whose folder is a symlink.
+Run the script. It copies every mod into `~/.config/herdr-app/mods/` and checks each one with `herdr-app check` when that command is available. Set `HERDR_APP_HOME` to use another app home.
 
 ```sh
-cp -r mods/git-panel ~/.config/herdr-app/mods/
-herdr-app check ~/.config/herdr-app/mods/git-panel
+./install.sh
 ```
 
-Then show it in a layout block: `{ "type": "block", "content": { "mod": "git-panel" } }`.
+The mods are copied, not linked, because Herdr does not load `svg()` icons or hot reload a mod whose folder is a symlink. Each mod's README says which layout block it fits.
 
-To use it in place of Herdr's Changes panel, clone the shipped layout and point its `changes` block at this mod. Keep the block id `changes`, because the tab bar's Changes button selects it:
+## Add a mod
 
-```sh
-herdr-app do layout.clone '{"name":"main","as":"my-layout"}'
-```
+1. Make the folder `<name>/mods/<name>/` with `main.js` and `mod.json`.
+2. Add `<name>/README.md`, and a `preview.png` and `RECIPE.md` when you can.
+3. Add a row to the table above. If the mod imports another mod, write that mod under "Needs".
 
-In `~/.config/herdr-app/layouts/my-layout.json`, change `"mod": "changes"` to `"mod": "git-panel"`.
-
-## What it does to your repository
-
-It runs git in the repository of the focused terminal. It can stage, unstage, commit, switch and create branches, and discard working-tree changes. Discard asks first, and it deletes untracked files for good. It uses no network.
-
-`RECIPE.md` describes the panel in full, so you can rebuild or change it.
+`install.sh` finds the new mod with no change. A mod cannot import a file from another mod (`herdr-app check` refuses it), so a mod that needs code from another one keeps its own copy.
 
 ## Licence
 
-Apache-2.0 (`LICENSE`). The panel started from Herdr's shipped `changes` mod (Apache-2.0). The icons are from [Lucide](https://lucide.dev) (ISC, `mods/git-panel/LICENSE-lucide.txt`).
+Apache-2.0 (`LICENSE`), except where a mod folder has its own `LICENSE`. file-icons is MIT, from [cybertron288/herdr-mods](https://github.com/cybertron288/herdr-mods).
