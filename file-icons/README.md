@@ -40,6 +40,8 @@ image(icon("src/app.ts", false, false, Boolean(settings().dark))).size(16)
 - `lookup.js`: `icon()`.
 - `LICENSE-material-icon-theme.txt`: the icons' MIT licence.
 
+`RECIPE.md` and `preview.png` are from cybertron288's mod.
+
 ## Licence
 
 MIT (`LICENSE`, © cybertron288). The panel is based on Herdr's own `files` mod (Apache-2.0). The icons are from Material Icon Theme (MIT).
