@@ -2,6 +2,8 @@
 
 Herdr's Files panel with the icons of VS Code's [Material Icon Theme](https://github.com/material-extensions/vscode-material-icon-theme): a lazy file browser for the folder of the focused pane, with git status marks and read-only previews. It also gives the icon set to [git-panel](../git-panel).
 
+![file-icons](preview.png)
+
 This mod is from [cybertron288/herdr-mods](https://github.com/cybertron288/herdr-mods/tree/main/file-icons). This copy moves the icon lookup into `lookup.js`, so that other mods can copy it.
 
 ## Install
@@ -40,7 +42,7 @@ image(icon("src/app.ts", false, false, Boolean(settings().dark))).size(16)
 - `lookup.js`: `icon()`.
 - `LICENSE-material-icon-theme.txt`: the icons' MIT licence.
 
-`RECIPE.md` and `preview.png` are from cybertron288's mod.
+`RECIPE.md` is from cybertron288's mod.
 
 ## Licence
 

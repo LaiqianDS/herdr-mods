@@ -11,7 +11,9 @@ Each folder is one mod, in the form that [herdr.dev/mods](https://herdr.dev/mods
 | [git-panel](git-panel) | Source control panel like VS Code's: staged and unstaged changes with file icons, a commit graph, diffs, stage, discard, commit and a branch switcher | file-icons |
 | [file-icons](file-icons) | Files panel with Material Icon Theme icons, and the icon set other mods use | — |
 
-[![git-panel](git-panel/preview.png)](git-panel)
+<a href="git-panel"><img src="git-panel/preview.png" alt="git-panel" width="380"></a> <a href="file-icons"><img src="file-icons/preview.png" alt="file-icons" width="380"></a>
+
+The screenshots use a made-up repository.
 
 ## Install
 
